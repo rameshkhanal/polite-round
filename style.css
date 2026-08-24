@@ -1,0 +1,147 @@
+/*
+Theme Name: Polite Round
+Theme URI: https://www.templatesell.com/item/polite-minimal-blog-wordpress-theme/
+Author: templatesell
+Author URI: https://www.templatesell.com/
+Description: A perfect theme for blog and magazine site. With masonry layout and multiple blog page layout, this theme is the awesome and minimal theme. It is a child theme of Polite. This theme has search option, off-canvas sidebar, multiple sidebar options, footer options, featured slider, promo boxed, footer widgets and many more. Besides that, this theme comes with added custom widgets for author information, featured posts, social icons, etc. It comes with primary color option to change the whole site color with a single click. More Details: https://www.templatesell.com/item/polite-grid/
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: polite-grid
+Template: polite
+Requires PHP: 5.2
+Tested up to: 6.0
+Tags: grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, footer-widgets, custom-colors, custom-header, editor-style, rtl-language-support, theme-options, blog, news
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Polite Gid is free WordPress theme by, Template Sell and child theme of Polite.
+Polite Grid is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+html{
+    font-size: 100%!important;
+}
+
+.main-header .logo h1{
+	text-transform: uppercase;
+}
+.posts-container{
+	padding-top: 30px;
+}
+.post-wrap.left-image{
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #e8ecf3;
+    width: 100%;
+    transition: .3s ease-in-out;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.left-image .post-media {
+    flex-shrink: 0;
+    display: flex;
+    position: relative;
+    transition: .6s ease;
+    padding: 0;
+    max-width: initial;
+    min-width: initial;
+}
+.left-image.round .post-media>a{
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    display: block;
+}
+.left-image.default .post-media>a{
+    border-radius: 6px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    display: block;
+}
+.left-image.default .post-media>a>img,
+.left-image.round .post-media>a>img{
+    padding: 0;
+}
+.left-image .post-media img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s ease; 
+}
+.masonry-post .left-image.round .post-media>a,
+.post-wrap.left-image.has-content .post-media>a{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.masonry-post .left-image.round>.post-content,
+.post-wrap.left-image.has-content>.post-content{
+    padding: 0;
+}
+.masonry-post .post-wrap.left-image{
+    flex-direction: column;
+}
+.meta_bottom {
+    top: 45%;
+    bottom: auto;
+    padding: 0;
+}
+.sidebar-3 .widget {
+    margin: 0 0 30px 0;
+    background: #fff;
+    border:none;
+}
+
+.sidebar-3 .widget-title {
+    position: relative;
+    padding: 0;
+    border-bottom: none;
+    text-align: left;
+}
+.sidebar-3 .widget-title:after {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #111;
+    top: 8px;
+    content: "";
+    margin-left: 10px;
+    left: auto;
+}
+.post-wrap.left-image.has-content{
+    display: inline-grid;
+}
+.post-wrap.left-image.has-content .post-media{
+    max-width: 100%;
+    display: block;
+}
+.comment-form{
+    padding: 15px;
+}
+@media (max-width: 767px){
+    .post-wrap.left-image{
+        flex-direction: column;
+    }
+    .left-image .post-media{
+        margin-bottom: 20px;
+    }
+    .left-image.round .post-media>a,
+    .left-image.default .post-media>a{
+        width: 100%;
+        height: 60vw;
+    } 
+    .left-image .post-content, 
+    .left-image .post-media{
+        padding:0;
+    }  
+}
