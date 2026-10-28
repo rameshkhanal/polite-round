@@ -1,7 +1,6 @@
 <?php
 /**
- * The child theme version, read from its own style.css so it cannot drift
- * from the version WordPress shows.
+ * Child theme version, used for asset cache busting.
  */
 if ( ! defined( 'POLITE_ROUND_VERSION' ) ) {
 	$polite_round_theme = wp_get_theme( get_stylesheet() );
@@ -46,12 +45,7 @@ function polite_round_enqueue_scripts() {
 
 	$polite_round_parent_version = wp_get_theme( get_template() )->get( 'Version' );
 
-	/*
-	 * The picker's faces, served from the theme. These used to be fetched
-	 * from fonts.googleapis.com on every page view, over a
-	 * protocol-relative URL and with no version - so WordPress appended
-	 * its own and the request carried a stray ver= parameter.
-	 */
+	// Locally hosted webfonts.
 	wp_enqueue_style(
 		'polite-round-fonts',
 		get_stylesheet_directory_uri() . '/assets/fonts/fonts.css',
@@ -59,14 +53,7 @@ function polite_round_enqueue_scripts() {
 		POLITE_ROUND_VERSION
 	);
 
-	/*
-	 * The parent enqueues 'polite-style' with get_stylesheet_uri(), which on
-	 * a child install resolves to THIS theme's style.css - so without this
-	 * the parent's own stylesheet would never be requested. It was being
-	 * registered here already, but with no version at all, which makes
-	 * WordPress substitute its own: the parent sheet was served as
-	 * style.css?ver=7.1.
-	 */
+	// Parent stylesheet, registered with a version.
 	wp_register_style(
 		'polite-style',
 		get_template_directory_uri() . '/style.css',
